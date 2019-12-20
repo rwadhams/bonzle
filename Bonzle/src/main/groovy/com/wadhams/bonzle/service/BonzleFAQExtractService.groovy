@@ -6,7 +6,7 @@ import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.ContentType
 import groovy.xml.XmlUtil
 
-class BonzleFAQService {
+class BonzleFAQExtractService {
 	BonzleHelperService helper = new BonzleHelperService()
 	
 //	Pattern letterPattern = ~/<a href="\/c\/a\?a=br&amp;o=91772837&amp;l=([A-Z])&amp;.*?<\/a>/

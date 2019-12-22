@@ -9,8 +9,6 @@ import groovy.xml.XmlUtil
 class BonzleFAQExtractService {
 	BonzleHelperService helper = new BonzleHelperService()
 	
-//	Pattern letterPattern = ~/<a href="\/c\/a\?a=br&amp;o=91772837&amp;l=([A-Z])&amp;.*?<\/a>/
-	
 	def execute() {
 		println 'BonzleFAQService execute()...'
 		println ''
@@ -45,6 +43,8 @@ class BonzleFAQExtractService {
 				}
 			}
 		}
+		println 'REMEMBER: Edit each state file. Replace "million" with numeric value.'
+		println ''
 	}
 	
 }

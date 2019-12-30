@@ -17,7 +17,7 @@ class BonzlePlaceService {
 
 		def http = new RESTClient("http://www.bonzle.com/")
 		
-		def states = ['NSW']	//NSW, VIC, QLD, SA, WA, TAS
+		def states = ['SA', 'WA', 'TAS']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
 		
 		states.each {state ->
 			//a=br&o=91772837&l=&st=NSW

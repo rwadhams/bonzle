@@ -13,16 +13,17 @@ class BonzleFAQReportService {
 	
 	Pattern elevationPattern = ~/(\d?,?[\d\.]{1,3}) m above sea level/
 	Pattern placePattern = ~/<h1.*>Frequently asked questions about (.*)<\/h1>/
-	Pattern latLongPattern = ~/latitude of (-\d{2}\.\d{1,5}) decimal degrees and a longitude of (\d{3}\.\d{1,5}) decimal degrees/
+	Pattern latLongPattern = ~/latitude of (-\d{1,2}\.\d{1,5}) decimal degrees and a longitude of (\d{3}\.\d{1,5}) decimal degrees/
 	Pattern populationPattern = ~/population of about [\w]{5,6} ([\d]{1,3},?[\d]{1,3},?[\d]{1,3}) \(based on the 2001 census\)/
 	
 	def execute() {
 		println 'BonzleFAQReportService execute()...'
 		println ''
 		
-		def states = ['NSW']	//NSW, VIC, QLD, SA, WA, TAS
+		def states = ['QLD']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
 		
 		states.each {state ->
+			//File reportFile = new File("out/${state}-report-small.txt")
 			File reportFile = new File("out/${state}-report.txt")
 			reportFile.withPrintWriter {pw ->
 				//File faqFile = new File("out/${state}-faq-small.txt")

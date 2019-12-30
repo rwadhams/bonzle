@@ -15,7 +15,7 @@ class BonzleFAQExtractService {
 		
 		def http = new RESTClient("http://www.bonzle.com/")
 		
-		def states = ['NSW']	//NSW, VIC, QLD, SA, WA, TAS
+		def states = ['SA', 'WA', 'TAS']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
 		
 		states.each {state ->
 			File faqFile = new File("out/${state}-faq.txt")
@@ -25,7 +25,6 @@ class BonzleFAQExtractService {
 					println line
 					def sa = line.split(/\|/)
 					assert sa.size() == 3
-					//TODO FAQ query and write each body to file
 					//http://www.bonzle.com/c/a?a=p&p=618&d=faq&cmd=sp&c=1
 					Map qm = [:]
 					qm['a'] = 'p'

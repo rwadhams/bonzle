@@ -47,7 +47,7 @@ BonzleFAQReportApp
 BonzleFAQReportService
 	Process:	Based on state, reads each faq line from the <state>-faq.txt file.
 				Extracts data values for reporting each place.
-	Outputs:	<state>-report.txt		e.g. SA-report.txt
+	Outputs:	<state>-data.txt		e.g. SA-data.txt
 		Format:	lat lng elevation population place-name
 			-34.92866  138.59863  0061  1000000  Adelaide, SA
 			-35.27826  138.45802  0024  0005500  Aldinga Beach, SA
@@ -55,7 +55,7 @@ BonzleFAQReportService
 
 Manual Report Editing
 ---------------------
-Open <state>-report.txt in TextPad, edit and save with new report name.
+Open <state>-data.txt in TextPad, edit and save with new report name.
 
 1.	Above 500m, sorted North to South
 	Filename: SA-above500m-north-to-south.txt

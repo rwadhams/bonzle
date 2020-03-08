@@ -21,9 +21,9 @@ class BonzleFAQReportService {
 		println ''
 		
 		states.each {state ->
-			//File reportFile = new File("out/${state}-report-small.txt")
-			File reportFile = new File("out/${state}-report.txt")
-			reportFile.withPrintWriter {pw ->
+			//File dataFile = new File("out/${state}-data-small.txt")
+			File dataFile = new File("out/${state}-data.txt")
+			dataFile.withPrintWriter {pw ->
 				//File faqFile = new File("out/${state}-faq-small.txt")
 				File faqFile = new File("out/${state}-faq.txt")
 				faqFile.each {line ->

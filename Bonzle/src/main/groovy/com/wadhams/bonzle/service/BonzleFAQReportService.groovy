@@ -16,11 +16,9 @@ class BonzleFAQReportService {
 	Pattern latLongPattern = ~/latitude of (-\d{1,2}\.\d{1,5}) decimal degrees and a longitude of (\d{3}\.\d{1,5}) decimal degrees/
 	Pattern populationPattern = ~/population of about [\w]{5,6} ([\d]{1,3},?[\d]{1,3},?[\d]{1,3}) \(based on the 2001 census\)/
 	
-	def execute() {
+	def execute(states) {
 		println 'BonzleFAQReportService execute()...'
 		println ''
-		
-		def states = ['QLD']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
 		
 		states.each {state ->
 			//File reportFile = new File("out/${state}-report-small.txt")

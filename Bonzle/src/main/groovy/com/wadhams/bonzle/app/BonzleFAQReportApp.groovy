@@ -8,7 +8,9 @@ class BonzleFAQReportApp {
 		println ''
 
 		BonzleFAQReportService service = new BonzleFAQReportService()
-		service.execute()
+		
+		def states = ['SA']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
+		service.execute(states)
 				
 		println ''
 		println 'BonzleFAQReportApp ended.'

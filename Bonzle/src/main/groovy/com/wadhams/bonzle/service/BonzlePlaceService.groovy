@@ -11,14 +11,13 @@ class BonzlePlaceService {
 	
 	Pattern letterPattern = ~/<a href="\/c\/a\?a=br&amp;o=91772837&amp;l=([A-Z])&amp;.*?<\/a>/
 	
-	def execute() {
+	def execute(states) {
 		println 'BonzlePlaceService execute()...'
 		println ''
 
 		def http = new RESTClient("http://www.bonzle.com/")
 		
-		def states = ['SA', 'WA', 'TAS']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
-		
+		//Main loop driven by list of Australian states. See BonzlePlaceApp. 
 		states.each {state ->
 			//a=br&o=91772837&l=&st=NSW
 			Map qm1 = [:]
@@ -27,6 +26,7 @@ class BonzlePlaceService {
 			qm1['l'] = ''
 			qm1['st'] = state
 	
+			//Query for a list of top-level letters (A thru Z) for places within this state
 			String body1
 			http.get(path:'c/a', query:qm1, contentType:ContentType.TEXT) { resp, reader ->
 				println "response status: ${resp.statusLine}"
@@ -38,6 +38,7 @@ class BonzlePlaceService {
 			def letters = m1.collect {m ->
 				m[1]
 			}
+			//Display letters for this state
 			println letters
 			
 			Pattern placePattern = ~/<a href="\/c\/a\?a=p&amp;p=([\d]{1,5}).*?place=(.*?)&amp;.*?<\/a>, ${state}<br>/
@@ -53,6 +54,7 @@ class BonzlePlaceService {
 					qm2['l'] = letter
 					qm2['st'] = state
 			
+					//Query for a list of places within this letter within this state
 					String body2
 					http.get(path:'c/a', query:qm2, contentType:ContentType.TEXT) { resp, reader ->
 						println "response status: ${resp.statusLine}"
@@ -62,6 +64,7 @@ class BonzlePlaceService {
 					def m2 = body2 =~ placePattern
 					m2.each {m ->
 						println m
+						//write numeric place value and place name and state to file
 						pw.println "${m[1]}|${m[2]}|${state}"
 					}
 					sleep(500)		//DOS lock-out protection

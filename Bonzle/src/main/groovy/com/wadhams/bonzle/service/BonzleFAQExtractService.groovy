@@ -9,13 +9,11 @@ import groovy.xml.XmlUtil
 class BonzleFAQExtractService {
 	BonzleHelperService helper = new BonzleHelperService()
 	
-	def execute() {
+	def execute(states) {
 		println 'BonzleFAQService execute()...'
 		println ''
 		
 		def http = new RESTClient("http://www.bonzle.com/")
-		
-		def states = ['SA', 'WA', 'TAS']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
 		
 		states.each {state ->
 			File faqFile = new File("out/${state}-faq.txt")

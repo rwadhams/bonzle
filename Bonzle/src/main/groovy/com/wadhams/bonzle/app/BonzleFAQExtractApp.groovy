@@ -9,6 +9,8 @@ class BonzleFAQExtractApp {
 		println ''
 
 		BonzleFAQExtractService service = new BonzleFAQExtractService()
+		
+		def states = ['SA']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
 		service.execute()
 				
 		println ''

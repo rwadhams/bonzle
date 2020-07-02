@@ -9,7 +9,7 @@ class BonzleFAQReportApp {
 
 		BonzleFAQReportService service = new BonzleFAQReportService()
 		
-		def states = ['SA']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
+		def states = ['NSW']	//'NSW', 'VIC', 'QLD', 'SA', 'WA', 'TAS'
 		service.execute(states)
 				
 		println ''

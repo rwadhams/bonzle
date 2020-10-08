@@ -10,7 +10,7 @@ Bonzle Data Mining
 ------------------
 Sequence:
 1.	BonzlePlaceApp		(provide list of states)
-2.	BonzleFAQExtractApp	(provide list of states)
+2.	BonzleFAQExtractApp	(provide list of places)
 
 
 BonzlePlaceApp

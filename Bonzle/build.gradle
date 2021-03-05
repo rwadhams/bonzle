@@ -1,31 +1,24 @@
-apply plugin: 'groovy'
-apply plugin: 'eclipse'
+plugins {
+    // Apply the groovy plugin to add support for Groovy
+    id 'groovy'
+
+    id 'eclipse'
+}
 
 repositories {
 	mavenLocal()
-	mavenCentral()
+    // Use jcenter for resolving dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
 }
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 dependencies {
-	compile 'com.wadhams.geolatlng:GeoLatLng:1.0'
-
-	compile 'org.codehaus.groovy:groovy-all:2.4.5' // if this version is changed, be mindful to update the Spock framework dependency also
-
-	compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+	implementation 'com.wadhams.geolatlng:GeoLatLng:1.0'
+	implementation 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
 	
-	//compile 'com.h2database:h2:1.4.199'
-	
-	compile 'org.apache.logging.log4j:log4j-api:2.5'
-	compile 'org.apache.logging.log4j:log4j-core:2.5'
+    // Use the latest Groovy version for building this library
+    implementation 'org.codehaus.groovy:groovy-all:2.5.11'
 
-	compile 'org.spockframework:spock-core:1.0-groovy-2.4' // mandatory for using Spock depends on groovy-all-2.4.x
-	testRuntime 'cglib:cglib-nodep:3.1'          // allows mocking of classes (in addition to interfaces) in Spock
-	testRuntime 'org.objenesis:objenesis:2.1'    // allows mocking of classes without default constructor (together with CGLIB) in Spock
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = "${gradleVersion}"
+    // Use the awesome Spock testing and specification framework
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
 }
